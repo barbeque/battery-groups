@@ -18,6 +18,8 @@ if len(sys.argv) < 2:
 query = sys.argv[1].upper()
 found = next(size for size in sizes if size['size'] == query)
 
+print 'Alternative sizes for group %s (%.2f x %.2f x %.2f):' % ( found['size'], found['length'], found['width'], found['height'])
+
 # found a size, filter the collection by tray
 tray_fits = [size for size in sizes if size['length'] <= found['length'] and size['width'] <= found['width'] and size['size'] <> query]
 
