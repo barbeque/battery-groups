@@ -20,7 +20,7 @@ query = sys.argv[1].upper()
 try:
     found = next(size for size in sizes if size['size'] == query)
 except StopIteration:
-    print 'Failed to find battery group size named', query
+    print 'Failed to find battery group size named %s. Known sizes are: %s' % (query, ", ".join([i['size'] for i in sizes]))
     sys.exit(1)
 
 print 'Alternative sizes for group %s (%.2f x %.2f x %.2f):' % ( found['size'], found['length'], found['width'], found['height'])
