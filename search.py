@@ -15,7 +15,7 @@ with open('battery.csv', 'rb') as csvfile:
 if len(sys.argv) < 2:
     print 'Not enough arguments'
 
-query = sys.argv[1].upper()
+query = " ".join(sys.argv[1:]).upper()
 
 try:
     found = next(size for size in sizes if size['size'] == query)
