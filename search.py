@@ -16,7 +16,12 @@ if len(sys.argv) < 2:
     print 'Not enough arguments'
 
 query = sys.argv[1].upper()
-found = next(size for size in sizes if size['size'] == query)
+
+try:
+    found = next(size for size in sizes if size['size'] == query)
+except StopIteration:
+    print 'Failed to find battery group size named', query
+    sys.exit(1)
 
 print 'Alternative sizes for group %s (%.2f x %.2f x %.2f):' % ( found['size'], found['length'], found['width'], found['height'])
 
